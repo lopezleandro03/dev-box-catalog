@@ -1,0 +1,12 @@
+ name: VSCodeAndNode
+ image: microsoftwindowsdesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
+ hostInformation: general_a_8c32gb256ssd_v1
+    
+ setupTasks:
+   - task: winget
+     inputs:
+       install: vscode
+   - task: winget
+     inputs:
+       install: OpenJS.NodeJS.LTS
+       version: 16.20.0
