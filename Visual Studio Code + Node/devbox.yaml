@@ -1,6 +1,8 @@
 name: VSCodeAndNode
-image: microsoftwindowsdesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
-hostInformation: general_a_8c32gb256ssd_v1
+image: microsoftvisualstudio_windowsplustools_base-win11-gen2
+hostInformation: general_i_8c32gb256ssd_v2
+
+ 
 
 setupTasks:
   - task: winget
