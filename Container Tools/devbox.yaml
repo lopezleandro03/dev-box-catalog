@@ -1,0 +1,16 @@
+name: ContainersTools
+image: microsoftvisualstudio_windowsplustools_base-win11-gen2
+hostInformation: general_i_8c32gb256ssd_v2
+
+ 
+
+setupTasks:
+  - task: winget
+    inputs:
+      package: OpenJS.NodeJS.LTS
+  - task: winget
+    inputs:
+      package: docker.dockerdesktop
+  - task: winget
+    inputs:
+      package: Kubernetes.kubectl
