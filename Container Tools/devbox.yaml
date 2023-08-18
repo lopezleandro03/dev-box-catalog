@@ -23,7 +23,7 @@ setupTasks:
       extension: GitHub.copilotvs
   - task: install-vscode-extension
     inputs:
-      extension: ms-azuretools.vscode-bicep
+      extension: GitHub.copilot
   # - task: install-vs-extension
   #   inputs:
   #     extension: GitHub.copilot-chat
