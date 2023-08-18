@@ -18,9 +18,6 @@ setupTasks:
   - task: choco
     inputs:
       install: azd
-  - task: install-vs-extension
-    inputs:
-      extension: GitHub.copilotvs
   - task: install-vscode-extension
     inputs:
       extension: GitHub.copilot
