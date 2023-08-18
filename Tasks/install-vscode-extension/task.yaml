@@ -1,0 +1,15 @@
+# This is a Visual Studio extension installation task for Dev Box.
+
+name: install-vscode-extension
+description: Installs a Visual Studio Code extension
+author: Microsoft Corporation
+command: ".\\Install-VSCodeExtension.ps1 -MarketplaceItemName {{marketplaceItemName}}"
+inputs:
+  marketplaceItemName:
+    type: string
+    required: true
+    description: |
+      The name of the Visual Studio Code extension to install.
+      For example, "GitHub.copilot".
+      Visit https://marketplace.visualstudio.com to learn
+      more about Visual Studio extensions.
