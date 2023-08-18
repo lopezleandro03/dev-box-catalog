@@ -1,8 +1,6 @@
-name: ContainersTools
+name: ContainersToolsReadyDevBox
 image: microsoftvisualstudio_windowsplustools_base-win11-gen2
 hostInformation: general_i_8c32gb256ssd_v2
-
- 
 
 setupTasks:
   - task: winget
@@ -14,3 +12,27 @@ setupTasks:
   - task: winget
     inputs:
       package: Kubernetes.kubectl
+  - task: choco
+    inputs:
+      install: azd
+  - task: choco
+    inputs:
+      install: azure-kubelogin
+  - task: install-vs-extension
+    inputs:
+      extension: GitHub.copilot
+  - task: install-vs-extension
+    inputs:
+      extension: GitHub.copilot-chat
+  - task: install-vs-extension
+    inputs:
+      extension: GitHub.copilot-chat
+  - task: install-vs-extension
+    inputs:
+      extension: ms-azuretools.vscode-bicep
+  - task: install-vs-extension
+    inputs:
+      extension: github.vscode-github-actions    
+  - task: install-vs-extension
+    inputs:
+      extension: ms-toolsai.jupyter
