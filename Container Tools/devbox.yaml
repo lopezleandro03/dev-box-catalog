@@ -17,22 +17,22 @@ setupTasks:
       install: azd
   - task: choco
     inputs:
-      install: azure-kubelogin
+      install: azd
   - task: install-vs-extension
     inputs:
-      extension: GitHub.copilot
-  - task: install-vs-extension
-    inputs:
-      extension: GitHub.copilot-chat
-  - task: install-vs-extension
-    inputs:
-      extension: GitHub.copilot-chat
-  - task: install-vs-extension
-    inputs:
-      extension: ms-azuretools.vscode-bicep
-  - task: install-vs-extension
-    inputs:
-      extension: github.vscode-github-actions    
-  - task: install-vs-extension
-    inputs:
-      extension: ms-toolsai.jupyter
+      extension: GitHub.copilotvs
+  # - task: install-vs-extension
+  #   inputs:
+  #     extension: GitHub.copilot-chat
+  # - task: install-vs-extension
+  #   inputs:
+  #     extension: GitHub.copilot-chat
+  # - task: install-vs-extension
+  #   inputs:
+  #     extension: ms-azuretools.vscode-bicep
+  # - task: install-vs-extension
+  #   inputs:
+  #     extension: github.vscode-github-actions    
+  # - task: install-vs-extension
+  #   inputs:
+  #     extension: ms-toolsai.jupyter
