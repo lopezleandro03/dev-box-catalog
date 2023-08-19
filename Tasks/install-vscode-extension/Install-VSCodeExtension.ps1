@@ -24,6 +24,7 @@ function Test-IsOsArchX64 {
     return [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture -eq [System.Runtime.InteropServices.Architecture]::X64
 }
 
+
 function Get-CodePlatformInformation {
     param(
         [Parameter(Mandatory=$true)]
@@ -65,7 +66,7 @@ function Get-CodePlatformInformation {
         }
 
         'Stable-User' {
-            $appName = "Visual Studio Code ($($Architecture) - User)"
+            $appName = "Visual Studio Code ($($Architecture) - User)"   
             break
         }
 
@@ -215,30 +216,45 @@ function Get-CodePlatformInformation {
     return $info
 }
 
+# ---- Main Script Start ----
+
+# Declare exit code. Default to failure and set to 0 when operation succeeds.
+$exitCode = 1
+
+# Turn off progress to fix speed bug in Invoke-WebRequest
+$ProgressPreference = 'SilentlyContinue'
+
+# Dev Box will always use 64-bit architecture. TODO: validate
+$Architecture = '64-bit'
+
+# TODO: is VS Code installed at system or user level?
+# $BuildEdition = 'Stable-User'
+$BuildEdition = 'Stable-Admin'
+
+# Get information required for installation
+
+Write-Host "Getting platform information..."
+
+$codePlatformInfo = Get-CodePlatformInformation -Bitness $Architecture -BuildEdition $BuildEdition
+$codeExePath = $codePlatformInfo.ExePath
+
+Write-Host "Visual Studio Code found at $codeExePath"
+
+# Install extension
+
 try {
-    # Dev Box will always use 64-bit architecture. TODO: validate
-    $Architecture = '64-bit'
-
-    # TODO: is VS Code installed at system or user level?
-    # $BuildEdition = 'Stable-User'
-    $BuildEdition = 'Stable-Admin'
-
-    # Get information required for installation
-    $codePlatformInfo = Get-CodePlatformInformation -Bitness $Architecture -BuildEdition $BuildEdition
-
-    $codeExePath = $codePlatformInfo.ExePath
-
-    # Install extension
-    $extension = $MarketplaceItemName
-    if ($IsLinux -or $IsMacOS) {
-        # On *nix we need to install extensions as the user -- VSCode refuses root
-        sudo -H -u $env:SUDO_USER pwsh -c "$codeExePath --install-extension `$extension"
-    }
-    else {
-        Write-Host "`nInstalling extension $extension..."
-        & $codeExePath --install-extension $extension
-    }
+    Write-Host "`nInstalling extension $MarketplaceItemName..."
+    & $codeExePath --install-extension $MarketplaceItemName
 }
-finally {
-    Write-Host "All set."
+catch {
+    Write-Warning "VSCode extension Installer failed with error: $_"
+    exit $exitcode
 }
+
+Write-Host "VSCode extension Installer Completed."
+Write-Host "$MarketplaceItemName Successfully installed."
+
+$exitcode = 0
+exit $exitCode
+
+# ---- Main Script End ----
