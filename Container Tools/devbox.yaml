@@ -6,9 +6,9 @@ setupTasks:
   - task: winget
     inputs:
       package: OpenJS.NodeJS.LTS
-  - task: winget
-    inputs:
-      package: docker.dockerdesktop
+  # - task: winget
+  #   inputs:
+  #     package: docker.dockerdesktop
   - task: winget
     inputs:
       package: Kubernetes.kubectl
