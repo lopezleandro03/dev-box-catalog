@@ -9,12 +9,12 @@ setupTasks:
   # - task: winget
   #   inputs:
   #     package: docker.dockerdesktop
-  - task: winget
-    inputs:
-      package: Kubernetes.kubectl
-  - task: choco
-    inputs:
-      install: azd
+  # - task: winget
+  #   inputs:
+  #     package: Kubernetes.kubectl
+  # - task: choco
+  #   inputs:
+  #     install: azd
   # - task: install-vscode-extension
   #   inputs:
   #     extension: GitHub.copilot
