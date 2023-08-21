@@ -6,6 +6,12 @@ setupTasks:
   - task: winget
     inputs:
       package: OpenJS.NodeJS.LTS
+  - task: install-vscode-extension
+    inputs:
+      extension: GitHub.copilot
+  - task: install-vscode-extension
+    inputs:
+      extension: GitHub.copilot-chat
   # - task: winget
   #   inputs:
   #     package: docker.dockerdesktop
@@ -15,12 +21,6 @@ setupTasks:
   # - task: choco
   #   inputs:
   #     install: azd
-  # - task: install-vscode-extension
-  #   inputs:
-  #     extension: GitHub.copilot
-  # - task: install-vscode-extension
-  #   inputs:
-  #     extension: GitHub.copilot-chat
   # - task: install-vscode-extension
   #   inputs:
   #     extension: github.vscode-github-actions
